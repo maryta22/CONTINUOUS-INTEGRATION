@@ -7,7 +7,7 @@ class TestMembershipManagement(unittest.TestCase):
         self.management = MembershipManagement()
 
     def test_show_plans(self):
-        self.management.show_plans()  # We can't easily test the output of this, but running it ensures no errors occur.
+        self.management.show_plans()
 
     def test_select_plan_valid(self):
         self.assertEqual(self.management.select_plan(0), 0)
