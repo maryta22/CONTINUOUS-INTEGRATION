@@ -1,4 +1,4 @@
-"""
+
 class Membership:
     def __init__(self, name, base_cost, additional_features=None, premium=False):
         self.name = name
@@ -80,18 +80,13 @@ class MembershipManagement:
         if self.number_of_members > 1:
             member_discount = total_cost * 0.10
             self.total_discount += member_discount
-            total_cost -= member_discount
 
         if total_cost > 400:
-            discount = 50
-            total_cost -= discount
+            self.total_discount += 50
         elif total_cost > 200:
-            discount = 20
-            total_cost -= discount
-        else:
-            discount = 0
+            self.total_discount += 20
 
-        self.total_discount += discount
+        total_cost -= self.total_discount
         return round(total_cost)
 
     def confirm_membership(self, confirm_input):
@@ -157,4 +152,3 @@ if __name__ == "__main__":
 
     if total == -1:
         print("Registration could not be completed due to invalid data or cancellation.")
-"""
